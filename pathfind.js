@@ -6,12 +6,12 @@ const Nattochan_mananger = "Nattochan-internal-system"
 
 
 
-function followPlayer(bot, person, natto) {
+async function followPlayer(bot, person, natto) {
     bot.loadPlugin(pathfinder)
     const playerCI = bot.players[person]
 
     if (!playerCI || !playerCI.entity) {
-        reply = natto.gen_speech("You are too far from that person to follow.", Nattochan_mananger)
+        reply = await natto.gen_speech("You are too far from that person to follow.", Nattochan_mananger)
         bot.chat(reply)
         return
     }
